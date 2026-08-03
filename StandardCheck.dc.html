@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+<template id="__bundler_thumbnail" data-bg-color="#0A1830">
+  <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+    <rect width="120" height="120" fill="#0A1830"/>
+    <path d="M30 62l20 20L92 32" fill="none" stroke="#5B8DEF" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</template>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="color-scheme" content="light" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true" />
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  html{color-scheme:only light}
+  body{margin:0;-webkit-font-smoothing:antialiased}
+  a{color:#2563EB}
+  a:hover{color:#12388A}
+  @keyframes sc-scan{0%{transform:translateX(-120%)}100%{transform:translateX(220%)}}
+  @keyframes sc-pulsering{0%,100%{box-shadow:0 0 0 0 rgba(91,141,239,.35),0 0 0 0 rgba(91,141,239,0)}50%{box-shadow:0 0 0 10px rgba(91,141,239,.12),0 0 0 26px rgba(91,141,239,.05)}}
+  @keyframes sc-spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+  @keyframes sc-spinrev{from{transform:rotate(0deg)}to{transform:rotate(-360deg)}}
+  @keyframes sc-drift{0%,100%{transform:translate(0,0)}50%{transform:translate(-10px,14px)}}
+  @keyframes sc-tickpulse{0%,100%{opacity:.35}50%{opacity:1}}
+  @keyframes sc-dash{to{stroke-dashoffset:-40}}
+  @media (prefers-reduced-motion:reduce){
+    *{animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important}
+  }
+</style>
+</helmet>
+
+<div style="background:#F5F8FD;color:#0A1830;font-family:'Inter',system-ui,sans-serif;line-height:1.6;overflow-x:hidden;position:relative">
+
+<header style="{{ headerStyle }}">
+  <div style="{{ hdStyle }}">
+    <a href="#" style="display:flex;align-items:center;gap:6px;text-decoration:none">
+      <span style="font-family:'Provicali','Baloo 2',sans-serif;font-weight:800;font-size:{{ logoFontSize }}px;letter-spacing:-.02em;color:{{ headerLogoColor }};transition:color .35s">StandardCheck</span>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="flex:0 0 auto;margin-top:2px"><path d="M2.5 12.8l6 6L21.5 5.2" stroke="{{ headerAccentColor }}" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+    </a>
+    <nav style="{{ navStyle }}">
+      <a href="#plataforma" style="{{ navLinkStyle }}" style-hover="{{ navLinkHoverStyle }}">Plataforma</a>
+      <a href="#servicio" style="{{ navLinkStyle }}" style-hover="{{ navLinkHoverStyle }}">Servicio</a>
+      <a href="#proceso" style="{{ navLinkStyle }}" style-hover="{{ navLinkHoverStyle }}">Proceso</a>
+      <a href="#precios" style="{{ navLinkStyle }}" style-hover="{{ navLinkHoverStyle }}">Precios</a>
+      <a href="{{ waHref }}" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:7px;background:#25D366;color:#0A1830;padding:10px 15px;border-radius:10px;font-weight:700;font-size:13.5px;text-decoration:none;transition:transform .25s cubic-bezier(.34,1.56,.64,1),box-shadow .25s;white-space:nowrap" style-hover="{{ waHoverStyle }}">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm5.8 14.03c-.24.68-1.42 1.31-1.95 1.36-.5.05-1.13.24-3.66-.77-3.08-1.24-5.04-4.4-5.19-4.6-.15-.2-1.24-1.65-1.24-3.15s.79-2.24 1.07-2.54c.28-.31.6-.38.8-.38.2 0 .4 0 .58.01.19.01.44-.07.68.52.24.59.83 2.04.9 2.19.07.15.12.32.02.52-.1.2-.15.32-.3.5-.15.17-.31.39-.44.52-.15.15-.3.31-.13.6.17.3.76 1.25 1.63 2.02 1.12 1 2.06 1.31 2.35 1.46.29.15.46.12.63-.07.17-.2.73-.85.93-1.14.2-.29.39-.24.66-.15.27.1 1.72.81 2.01.96.29.15.49.22.56.34.07.13.07.73-.17 1.41Z"></path></svg>
+        WhatsApp
+      </a>
+      <a href="#registro" style="{{ ctaStyle }}" style-hover="{{ ctaHoverStyle }}">Registrar propiedad</a>
+    </nav>
+  </div>
+</header>
+
+<section style="position:relative;overflow:hidden;color:#fff;background:linear-gradient(155deg,#0C2E6E 0%,#143C8F 46%,#1B54C4 100%);padding:{{ heroPad }}">
+  <canvas ref="{{ heroCanvasRef }}" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none"></canvas>
+  <div ref="{{ heroBlueprintOuterRef }}" style="position:absolute;inset:-40px;pointer-events:none;opacity:.55">
+    <div ref="{{ heroBlueprintRef }}" style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:48px 48px;mask-image:radial-gradient(circle at 72% 12%,#000,transparent 68%)"></div>
+  </div>
+  <div ref="{{ heroOrbOuterRef }}" style="position:absolute;right:-220px;top:-260px;pointer-events:none">
+    <div style="width:640px;height:640px;border-radius:50%;background:radial-gradient(circle,rgba(143,180,255,.24),transparent 62%);animation:sc-drift 9s ease-in-out infinite"></div>
+  </div>
+  <svg width="180" height="180" viewBox="0 0 180 180" style="position:absolute;left:-40px;bottom:-40px;opacity:.25;pointer-events:none" aria-hidden="true">
+    <circle cx="90" cy="90" r="70" fill="none" stroke="#5B8DEF" stroke-width="1" stroke-dasharray="2 6" style="animation:sc-spin 40s linear infinite;transform-origin:90px 90px"></circle>
+    <circle cx="90" cy="90" r="45" fill="none" stroke="#5B8DEF" stroke-width="1" stroke-dasharray="1 5" style="animation:sc-spinrev 30s linear infinite;transform-origin:90px 90px"></circle>
+  </svg>
+  <div style="max-width:1180px;margin:0 auto;padding:0 {{ wrapPad }};position:relative;z-index:2">
+    <div style="display:grid;grid-template-columns:{{ heroCols }};gap:56px;align-items:center">
+      <div>
+        <span data-rid="heroKicker" style="{{ heroKickerStyle }}">Departamento de cobros externo · República Dominicana</span>
+        <h1 data-rid="heroH1" style="{{ heroH1Style }}">El departamento de cobros <span style="color:#5B8DEF">que su negocio no tiene.</span></h1>
+        <p data-rid="heroLead" style="{{ heroLeadStyle }}">Cobramos por usted —o bajo su propia marca— con gestión persuasiva y respaldo legal. Usted no vuelve a perseguir a un deudor.</p>
+        <div data-rid="heroCta" style="{{ heroCtaRowStyle }}">
+          <a href="{{ waHref }}" target="_blank" rel="noopener noreferrer" style="display:inline-block;text-decoration:none;font-weight:700;border-radius:12px;background:#fff;color:#12388A;padding:15px 30px;font-size:15px;box-shadow:0 16px 40px rgba(4,18,54,.3);transition:transform .28s cubic-bezier(.34,1.56,.64,1),box-shadow .28s" style-hover="{{ btnWhiteHoverStyle }}">Hablar por WhatsApp</a>
+          <a href="#plataforma" style="color:#fff;font-size:14.5px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:8px;opacity:.92">Ver la plataforma <span ref="{{ heroArrowRef }}" style="transition:transform .26s">→</span></a>
+        </div>
+        <div data-rid="heroCred" style="{{ heroCredStyle }}">
+          <span>Experiencia en cobranzas para la banca dominicana</span><span style="width:4px;height:4px;border-radius:50%;background:#5B8DEF"></span>
+          <span>Respaldo legal · Ley 85-25</span><span style="width:4px;height:4px;border-radius:50%;background:#5B8DEF"></span>
+          <span>Gestión documentada</span>
+        </div>
+      </div>
+      <div data-rid="statement" style="{{ statementWrapStyle }}">
+        <div ref="{{ statementRef }}" style="position:relative;background:#fff;border-radius:20px;padding:26px;color:#0A1830;box-shadow:0 44px 90px rgba(4,18,54,.34),0 0 0 1px rgba(91,141,239,.25);max-width:400px;margin-left:auto">
+          <div style="position:absolute;top:0;left:0;right:0;height:2px;overflow:hidden">
+            <div style="width:40%;height:100%;background:linear-gradient(90deg,transparent,#2563EB,transparent);animation:sc-scan 3.4s linear infinite"></div>
+          </div>
+          <div style="position:absolute;top:-22px;left:-18px;background:#fff;border:1px solid #E1E9F5;border-radius:12px;padding:10px 14px;font-size:12.5px;font-weight:600;color:#243A5E;box-shadow:0 16px 36px rgba(4,18,54,.16);display:flex;align-items:center;gap:8px">
+            <span style="width:8px;height:8px;border-radius:50%;background:#16A46B;animation:sc-tickpulse 1.8s ease-in-out infinite"></span>Comprobante recibido
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:18px;margin-top:6px">
+            <div><div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#8A9BB8">Estado de cuenta</div><div style="font-family:'Manrope',sans-serif;font-weight:700;font-size:16px;margin-top:4px">Apto. 4B · Torre Marbella</div></div>
+            <span style="font-size:11.5px;font-weight:700;color:#12388A;background:#E9F0FF;border-radius:100px;padding:5px 11px">Gestión activa</span>
+          </div>
+          <div style="font-family:'Manrope',sans-serif;font-weight:800;font-size:34px;letter-spacing:-.03em;margin-bottom:4px">RD$35,000 <span style="font-size:15px;color:#586A87;font-family:'Inter',sans-serif;font-weight:500">/mes</span></div>
+          <div style="font-size:12.5px;color:#586A87;margin-bottom:18px">Vence el día 5 de cada mes</div>
+          <div style="display:flex;justify-content:center;margin-bottom:10px">
+            <svg width="140" height="80" viewBox="0 0 140 80">
+              <path d="M10 70 A60 60 0 0 1 130 70" fill="none" stroke="#E1E9F5" stroke-width="8" stroke-linecap="round"></path>
+              <path d="M10 70 A60 60 0 0 1 130 70" fill="none" stroke="#2563EB" stroke-width="8" stroke-linecap="round" style="stroke-dasharray:188;stroke-dashoffset:{{ radarOffset }};transition:stroke-dashoffset 1.4s cubic-bezier(.22,.61,.36,1)"></path>
+              <text x="70" y="58" text-anchor="middle" font-family="Manrope,sans-serif" font-weight="800" font-size="20" fill="#0A1830">3/6</text>
+            </svg>
+          </div>
+          <div style="font-size:12px;color:#586A87;text-align:center;margin-bottom:18px">Nivel <b style="color:#0A1830">3 de 6</b> · gestión telefónica</div>
+          <div style="display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid #E1E9F5;font-size:13.5px;color:#243A5E;font-weight:500">
+            <span style="width:20px;height:20px;border-radius:50%;background:rgba(22,164,107,.12);display:grid;place-items:center;flex:0 0 auto"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5 9-11" stroke="#16A46B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+            Pago confirmado por el propietario
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="position:relative;overflow:hidden;background:#0A1830;color:#fff">
+  <canvas ref="{{ metricsCanvasRef }}" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.6"></canvas>
+  <div ref="{{ metricsRef }}" style="max-width:1180px;margin:0 auto;position:relative;z-index:2;display:grid;grid-template-columns:{{ metricsCols }}">
+    <div style="padding:40px 28px;border-right:1px solid rgba(255,255,255,.09)">
+      <div style="font-family:'Manrope',sans-serif;font-size:40px;font-weight:800;letter-spacing:-.03em;line-height:1">{{ metricVals.exp }}</div>
+      <div style="font-size:13px;color:#9FB0CE;margin-top:9px;max-width:22ch">años de experiencia en cobro persuasivo</div>
+    </div>
+    <div style="padding:40px 28px;border-right:1px solid rgba(255,255,255,.09)">
+      <div style="font-family:'Manrope',sans-serif;font-size:40px;font-weight:800;letter-spacing:-.03em;line-height:1">{{ metricVals.levels }}</div>
+      <div style="font-size:13px;color:#9FB0CE;margin-top:9px;max-width:22ch">niveles de gestión, de la cortesía a la vía legal</div>
+    </div>
+    <div style="padding:40px 28px;border-right:1px solid rgba(255,255,255,.09)">
+      <div style="font-family:'Manrope',sans-serif;font-size:40px;font-weight:800;letter-spacing:-.03em;line-height:1">{{ metricVals.motor }}</div>
+      <div style="font-size:13px;color:#9FB0CE;margin-top:9px;max-width:22ch">motor de cobro, múltiples carteras</div>
+    </div>
+    <div style="padding:40px 28px;display:flex;flex-direction:column;justify-content:center">
+      <div style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#5B8DEF;margin-bottom:12px">Capacidad</div>
+      <svg width="130" height="42" viewBox="0 0 130 42" fill="none" aria-hidden="true">
+        <path d="M2 38 L26 33 L50 30 L74 20 L98 13 L128 3" stroke="#5B8DEF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="stroke-dasharray:220;stroke-dashoffset:{{ sparkOffset }};transition:stroke-dashoffset 1.6s cubic-bezier(.22,.61,.36,1) .2s"></path>
+        <path d="M2 38 L26 33 L50 30 L74 20 L98 13 L128 3 L128 42 L2 42 Z" fill="url(#sg)" opacity=".28"></path>
+        <defs><linearGradient id="sg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5B8DEF"></stop><stop offset="1" stop-color="#5B8DEF" stop-opacity="0"></stop></linearGradient></defs>
+      </svg>
+      <div style="font-size:13px;color:#9FB0CE;margin-top:8px">escala sin sumar costo por puerta</div>
+    </div>
+  </div>
+</section>
+
+<section id="plataforma" style="position:relative;overflow:hidden;padding:{{ secPad }};background:#0E2350;color:#EAF0FB">
+  <canvas ref="{{ platformCanvasRef }}" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.5"></canvas>
+  <div style="position:absolute;width:620px;height:620px;border-radius:50%;background:radial-gradient(circle,rgba(43,99,235,.3),transparent 62%);filter:blur(30px);top:-180px;right:-140px;pointer-events:none"></div>
+  <div style="max-width:1180px;margin:0 auto;padding:0 {{ wrapPad }};position:relative;z-index:2">
+    <div data-rid="platformHead" style="{{ platformHeadStyle }};max-width:62ch">
+      <span style="font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#5B8DEF">La plataforma</span>
+      <h2 style="font-family:'Manrope',sans-serif;color:#fff;font-size:clamp(30px,4.2vw,46px);line-height:1.05;margin:16px 0 0;font-weight:800;letter-spacing:-.04em">Un motor. Muchas carteras.</h2>
+      <p style="font-size:17px;color:#A6B5D2;margin:18px 0 0">Somos el departamento de cobros externo que su negocio no tiene. Empezamos con la renta, y el mismo servicio atiende otras carteras — de forma tercerizada o bajo su propia marca.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:{{ pfCols }};gap:44px;align-items:center;margin-top:56px;position:relative">
+      <div data-rid="engine" style="{{ engineStyle }};position:relative;background:linear-gradient(160deg,#12388A,#0C2E6E);border:1px solid rgba(143,180,255,.28);border-radius:20px;padding:30px;box-shadow:0 30px 70px rgba(4,18,54,.4)">
+        <div style="position:absolute;inset:-1px;border-radius:20px;pointer-events:none;border:1px solid rgba(143,180,255,.5);animation:sc-pulsering 3.2s ease-in-out infinite"></div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#5B8DEF">El motor</div>
+        <h3 style="font-family:'Manrope',sans-serif;color:#fff;font-size:24px;margin:8px 0 18px;letter-spacing:-.02em">StandardCheck Core</h3>
+        <ul style="list-style:none;margin:0;padding:0;display:grid;gap:12px">
+          <sc-for list="{{ engineFeatures }}" as="f" hint-placeholder-count="4">
+            <li style="display:flex;align-items:center;gap:12px;font-size:14.5px;color:#CDD9EF"><span style="width:7px;height:7px;border-radius:50%;background:#5B8DEF;flex:0 0 auto"></span>{{ f }}</li>
+          </sc-for>
+        </ul>
+      </div>
+      <div data-rid="verticals" style="{{ verticalsStyle }};display:grid;grid-template-columns:{{ verticalsCols }};gap:12px">
+        <sc-for list="{{ verticals }}" as="v" hint-placeholder-count="6">
+          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:18px;transition:background .3s,transform .3s cubic-bezier(.34,1.56,.64,1),border-color .3s" style-hover="{background:'rgba(255,255,255,.08)',transform:'translateY(-3px)',borderColor:'rgba(143,180,255,.5)'}">
+            <div style="font-family:'Manrope',sans-serif;font-weight:700;font-size:16px;color:#fff">{{ v.name }}</div>
+            <span style="font-size:11.5px;font-weight:700;margin-top:8px;display:inline-block;padding:3px 10px;border-radius:100px;background:{{ v.badgeBg }};color:{{ v.badgeColor }};border:{{ v.badgeBorder }}">{{ v.status }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+    <div data-rid="modes" style="{{ modesStyle }};display:grid;grid-template-columns:{{ modesCols }};gap:16px;margin-top:30px">
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:24px">
+        <div style="font-family:'Manrope',sans-serif;font-weight:700;font-size:17px;color:#fff;margin-bottom:8px"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#5B8DEF;margin-right:9px;vertical-align:middle"></span>Tercerizado</div>
+        <p style="font-size:14px;color:#A6B5D2;margin:0">Usted nos contrata y cobramos por usted. Su departamento de cobros, sin nómina ni fricción.</p>
+      </div>
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:24px">
+        <div style="font-family:'Manrope',sans-serif;font-weight:700;font-size:17px;color:#fff;margin-bottom:8px"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#5B8DEF;margin-right:9px;vertical-align:middle"></span>Marca blanca</div>
+        <p style="font-size:14px;color:#A6B5D2;margin:0">Ofrezca el cobro bajo su propia marca. Somos el motor invisible; sus clientes ven su nombre, no el nuestro.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="servicio" style="padding:{{ secPad }};background:#F5F8FD">
+  <div style="max-width:1180px;margin:0 auto;padding:0 {{ wrapPad }};display:grid;grid-template-columns:{{ svcCols }};gap:60px;align-items:start">
+    <div data-rid="svcIntro" style="{{ svcIntroStyle }};position:{{ svcIntroPos }};top:112px">
+      <span style="font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#12388A">El servicio</span>
+      <h2 style="font-family:'Manrope',sans-serif;font-size:clamp(28px,3.6vw,40px);line-height:1.08;margin:15px 0 0;font-weight:800;letter-spacing:-.035em">Nos encargamos del cobro. Usted conserva la relación.</h2>
+      <p style="font-size:16px;color:#586A87;margin:18px 0 0">Somos un equipo con experiencia en cobranzas, forjada gestionando carteras para la mayoría de los bancos y aseguradoras del país. Contactamos a su inquilino y lo llevamos a pagar; usted mantiene el trato, nosotros hacemos la gestión que a nadie le gusta hacer.</p>
+    </div>
+    <div style="display:flex;flex-direction:column">
+      <sc-for list="{{ svcItems }}" as="it" hint-placeholder-count="4">
+        <div style="padding:28px 0;border-top:1px solid #E1E9F5;display:grid;grid-template-columns:14px 1fr;gap:18px" data-first="{{ $index }}">
+          <span style="width:8px;height:8px;border-radius:50%;background:#2563EB;margin-top:9px"></span>
+          <div><h3 style="font-size:19px;font-weight:700;margin:0 0 5px;letter-spacing:-.02em;font-family:'Manrope',sans-serif">{{ it.title }}</h3><p style="font-size:15px;color:#586A87;margin:0;max-width:50ch">{{ it.desc }}</p></div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="proceso" style="padding:{{ secPad }};background:#EEF3FE;border-top:1px solid #E1E9F5;border-bottom:1px solid #E1E9F5">
+  <div style="max-width:1180px;margin:0 auto;padding:0 {{ wrapPad }}">
+    <div data-rid="procHead" style="{{ procHeadStyle }};max-width:62ch">
+      <span style="font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#12388A">El proceso</span>
+      <h2 style="font-family:'Manrope',sans-serif;font-size:clamp(30px,4.2vw,46px);line-height:1.05;margin:16px 0 0;font-weight:800;letter-spacing:-.04em">Seis niveles de persuasión que escalan.</h2>
+      <p style="font-size:17px;color:#586A87;margin:18px 0 0">La mayoría de las cuentas se resuelven persuadiendo, no litigando. El tono sube solo cuando la cuenta lo exige: los niveles 1 a 4 son gestión persuasiva incluida; los niveles 5 y 6, el respaldo legal para el caso que no cede.</p>
+    </div>
+    <div ref="{{ spineRef }}" style="margin-top:54px;position:relative;padding-left:26px">
+      <div style="position:absolute;left:0;top:0;bottom:0;width:2px;background:#D4DEF3"></div>
+      <div style="position:absolute;left:0;top:0;width:2px;height:{{ spineProgress }}%;background:linear-gradient(180deg,#5B8DEF,#0C2E6E);transition:height .1s linear"></div>
+      <sc-for list="{{ spineLevels }}" as="lv" hint-placeholder-count="6">
+        <div style="position:relative;display:grid;grid-template-columns:52px 1fr auto;gap:24px;align-items:center;padding:19px 0 19px 0;margin-left:-26px;padding-left:26px">
+          <div style="position:relative;z-index:2;width:52px;height:52px;border-radius:15px;display:grid;place-items:center;font-family:'Manrope',sans-serif;font-weight:800;font-size:16px;color:#fff;box-shadow:{{ lv.markShadow }};background:{{ lv.markBg }};transition:background .5s cubic-bezier(.22,.61,.36,1),box-shadow .5s;transform:{{ lv.markScale }}">{{ lv.n }}</div>
+          <div><h3 style="font-size:18px;font-weight:700;margin:0 0 3px;letter-spacing:-.02em;font-family:'Manrope',sans-serif">{{ lv.title }}</h3><p style="color:#586A87;font-size:14px;margin:0">{{ lv.desc }}</p></div>
+          <span style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:{{ lv.tagColor }};white-space:nowrap;display:{{ lvlTagDisplay }}">{{ lv.tag }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section style="padding:{{ secPad }};background:#F5F8FD">
+  <div style="max-width:1180px;margin:0 auto;padding:0 {{ wrapPad }}">
+    <div data-rid="legalHead" style="{{ legalHeadStyle }};max-width:62ch">
+      <span style="font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#12388A">Por qué funciona</span>
+      <h2 style="font-family:'Manrope',sans-serif;font-size:clamp(30px,4.2vw,46px);line-height:1.05;margin:16px 0 0;font-weight:800;letter-spacing:-.04em">La persuasión resuelve. La ley respalda.</h2>
+    </div>
+    <div style="margin-top:46px;display:grid;grid-template-columns:{{ legalCols }};gap:28px;align-items:stretch">
+      <div data-rid="q" style="{{ qStyle }};background:#E9F0FF;border-radius:16px;padding:34px;font-family:'Manrope',sans-serif;font-size:21px;line-height:1.42;color:#0A1830;font-weight:600;letter-spacing:-.02em">"La mayoría de los inquilinos se ponen al día cuando el cobro es <span style="color:#12388A">profesional, constante y firme</span> — no cuando reciben una demanda."</div>
+      <p data-rid="p" style="{{ pStyle }};font-size:16px;color:#586A87;padding:6px 0">Nuestra experiencia es persuadir al inquilino a pagar sin romper la relación. El respaldo legal —abogados y el marco de la Ley 85-25— está detrás como último recurso para el caso que no cede, y se activa solo con su consentimiento.</p>
+    </div>
+  </div>
+</section>
+
+<section id="precios" style="padding:{{ secPad }};background:#F5F8FD">
+  <div style="max-width:1180px;margin:0 auto;padding:0 {{ wrapPad }}">
+    <div data-rid="pricingHead" style="{{ pricingHeadStyle }};max-width:62ch">
+      <span style="font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#12388A">Paquetes de gestión</span>
+      <h2 style="font-family:'Manrope',sans-serif;font-size:clamp(30px,4.2vw,46px);line-height:1.05;margin:16px 0 0;font-weight:800;letter-spacing:-.04em">Precios por puerta.</h2>
+      <p style="font-size:17px;color:#586A87;margin:18px 0 0">Prepago, con un mínimo de tres meses. Mientras más largo el plan, menor el costo por mes.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:{{ priceCols }};gap:20px;margin-top:52px">
+      <sc-for list="{{ plans }}" as="pl" hint-placeholder-count="3">
+        <div style="background:#FFFFFF;border:{{ pl.border }};border-radius:18px;padding:30px 28px;display:flex;flex-direction:column;position:relative;box-shadow:{{ pl.shadow }};transition:transform .3s cubic-bezier(.34,1.56,.64,1),box-shadow .3s" style-hover="{transform:'translateY(-5px)'}">
+          <sc-if value="{{ pl.badge }}" hint-placeholder-val="{{ false }}">
+            <div style="position:absolute;top:-11px;left:28px;background:#2563EB;color:#fff;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 12px;border-radius:100px">{{ pl.badge }}</div>
+          </sc-if>
+          <div style="font-family:'Manrope',sans-serif;font-weight:700;font-size:18px;color:#0A1830">{{ pl.name }}</div>
+          <div style="font-size:12px;font-weight:700;color:#16A46B;margin-top:4px;min-height:16px">{{ pl.save }}</div>
+          <div style="font-family:'Manrope',sans-serif;font-weight:800;font-size:38px;letter-spacing:-.03em;color:#0A1830;margin:14px 0 2px">{{ pl.total }} <span style="font-size:15px;color:#586A87;font-weight:500;font-family:'Inter',sans-serif">/ puerta</span></div>
+          <div style="font-size:13.5px;color:#586A87">{{ pl.permes }}</div>
+          <ul style="list-style:none;margin:20px 0 24px;padding:20px 0 0;border-top:1px solid #E1E9F5;display:grid;gap:11px">
+            <sc-for list="{{ pl.features }}" as="ft" hint-placeholder-count="3">
+              <li style="display:flex;gap:10px;font-size:14px;color:#243A5E;align-items:flex-start"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="flex:0 0 auto;color:#2563EB;margin-top:1px"><path d="M5 12l5 5 9-11" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>{{ ft }}</li>
+            </sc-for>
+          </ul>
+          <a href="{{ pl.payHref }}" target="_blank" rel="noopener noreferrer" style="margin-top:auto;width:100%;display:flex;align-items:center;justify-content:center;gap:9px;background:#2563EB;color:#fff;border-radius:11px;padding:13px;font-weight:700;font-size:14.5px;text-decoration:none;transition:background .25s,transform .25s cubic-bezier(.34,1.56,.64,1);box-shadow:{{ pl.payShadow }}" style-hover="{background:'#12388A',transform:'translateY(-1px)'}">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="2" stroke="currentColor" stroke-width="2"></rect><path d="M8 11V8a4 4 0 018 0v3" stroke="currentColor" stroke-width="2"></path></svg> Pagar por link
+          </a>
+        </div>
+      </sc-for>
+    </div>
+    <div data-rid="payStrip" style="{{ payStripStyle }};display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:34px;font-size:13px;color:#586A87;font-weight:500">
+      <span style="display:inline-flex;align-items:center;gap:7px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="2" stroke="currentColor" stroke-width="2"></rect><path d="M8 11V8a4 4 0 018 0v3" stroke="currentColor" stroke-width="2"></path></svg> Pago en línea seguro por link</span>
+      <span style="display:inline-flex;gap:6px;align-items:center">
+        <span style="width:36px;height:23px;border-radius:4px;background:#E9F0FF;border:1px solid #E1E9F5;display:grid;place-items:center;font-size:9px;font-weight:700;color:#12388A">VISA</span>
+        <span style="width:36px;height:23px;border-radius:4px;background:#E9F0FF;border:1px solid #E1E9F5;display:grid;place-items:center;font-size:9px;font-weight:700;color:#12388A">MC</span>
+        <span style="width:36px;height:23px;border-radius:4px;background:#E9F0FF;border:1px solid #E1E9F5;display:grid;place-items:center;font-size:9px;font-weight:700;color:#12388A">···</span>
+      </span>
+    </div>
+  </div>
+</section>
+
+<section id="registro" style="padding:{{ secPad }};background:#FFFFFF;border-top:1px solid #E1E9F5">
+  <div style="max-width:1180px;margin:0 auto;padding:0 {{ wrapPad }}">
+    <div data-rid="regHead" style="{{ regHeadStyle }};max-width:62ch">
+      <span style="font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#12388A">Registro</span>
+      <h2 style="font-family:'Manrope',sans-serif;font-size:clamp(30px,4.2vw,46px);line-height:1.05;margin:16px 0 0;font-weight:800;letter-spacing:-.04em">Registre su propiedad.</h2>
+      <p style="font-size:17px;color:#586A87;margin:18px 0 0">Complete el formulario y nos comunicaremos con usted para confirmar el plan y activar la gestión. El cobro inicia con su primer ciclo de renta.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:{{ formCols }};gap:52px;margin-top:50px;align-items:start">
+      <div data-rid="fcard" style="{{ fcardStyle }};background:#F5F8FD;border:1px solid #E1E9F5;border-radius:20px;padding:32px">
+        <div style="margin-bottom:18px">
+          <span style="display:block;font-size:13px;font-weight:600;color:#243A5E;margin:0 0 7px">Nombre completo <span style="color:#2563EB">*</span></span>
+          <input value="{{ form.nombre }}" onChange="{{ onField('nombre') }}" maxlength="80" autocomplete="name" placeholder="Ej. Juan Pérez" style="{{ inputStyle('nombre') }}" style-focus="{{ inputFocusStyle }}" />
+        </div>
+        <div style="margin-bottom:18px">
+          <span style="display:block;font-size:13px;font-weight:600;color:#243A5E;margin:0 0 7px">WhatsApp <span style="color:#2563EB">*</span></span>
+          <input value="{{ form.wa }}" onChange="{{ onField('wa') }}" inputmode="tel" maxlength="20" autocomplete="tel" placeholder="+1 809 000 0000" style="{{ inputStyle('wa') }}" style-focus="{{ inputFocusStyle }}" />
+        </div>
+        <div style="margin-bottom:18px">
+          <span style="display:block;font-size:13px;font-weight:600;color:#243A5E;margin:0 0 7px">Cantidad de propiedades <span style="color:#2563EB">*</span></span>
+          <input value="{{ form.props }}" onChange="{{ onField('props') }}" inputmode="numeric" maxlength="4" placeholder="Ej. 2" style="{{ inputStyle('props') }}" style-focus="{{ inputFocusStyle }}" />
+        </div>
+        <div style="margin-bottom:18px">
+          <span style="display:block;font-size:13px;font-weight:600;color:#243A5E;margin:0 0 7px">¿Tiene algún inquilino atrasado actualmente? <span style="font-weight:400;color:#586A87;font-size:12px">(opcional)</span></span>
+          <div style="display:flex;gap:8px">
+            <sc-for list="{{ atrasoOptions }}" as="op" hint-placeholder-count="3">
+              <div onClick="{{ selectAtraso(op) }}" style="flex:1;text-align:center;border-radius:11px;padding:11px 6px;cursor:pointer;font-size:13px;font-weight:600;transition:.2s;border:{{ atrasoBorder(op) }};color:{{ atrasoColor(op) }};background:{{ atrasoBg(op) }}">{{ op }}</div>
+            </sc-for>
+          </div>
+        </div>
+        <div style="margin-bottom:18px">
+          <span style="display:block;font-size:13px;font-weight:600;color:#243A5E;margin:0 0 7px">Plan de interés <span style="font-weight:400;color:#586A87;font-size:12px">(opcional)</span></span>
+          <select value="{{ form.plan }}" onChange="{{ onPlanField }}" style="width:100%;font-family:inherit;font-size:15px;color:#0A1830;background:#FFFFFF;border:1.5px solid #E1E9F5;border-radius:11px;padding:12px 14px">
+            <option value="" disabled="true">Seleccione</option>
+            <option>3 meses — RD$1,497 por puerta</option>
+            <option>6 meses — RD$2,545 por puerta</option>
+            <option>1 año — RD$4,790 por puerta</option>
+            <option>Aún no lo sé</option>
+          </select>
+        </div>
+        <div style="margin-bottom:18px">
+          <label style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:#586A87;cursor:pointer">
+            <input type="checkbox" checked="{{ form.consent }}" onChange="{{ onConsent }}" style="width:18px;height:18px;margin-top:1px;accent-color:#2563EB;flex:0 0 auto" />
+            <span>Autorizo el tratamiento de mis datos conforme a la Política de Privacidad (Ley 172-13).</span>
+          </label>
+        </div>
+        <button type="button" onClick="{{ sendRegistration }}" style="width:100%;margin-top:6px;background:#2563EB;color:#fff;border:0;border-radius:12px;padding:15px;font-family:inherit;font-size:15px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:9px;box-shadow:0 14px 30px rgba(37,99,235,.28);transition:transform .26s cubic-bezier(.34,1.56,.64,1),box-shadow .26s,background .26s" style-hover="{transform:'translateY(-1px)',background:'#12388A',boxShadow:'0 20px 40px rgba(37,99,235,.36)'}">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm5.8 14.03c-.24.68-1.42 1.31-1.95 1.36-.5.05-1.13.24-3.66-.77-3.08-1.24-5.04-4.4-5.19-4.6-.15-.2-1.24-1.65-1.24-3.15s.79-2.24 1.07-2.54c.28-.31.6-.38.8-.38.2 0 .4 0 .58.01.19.01.44-.07.68.52.24.59.83 2.04.9 2.19.07.15.12.32.02.52-.1.2-.15.32-.3.5-.15.17-.31.39-.44.52-.15.15-.3.31-.13.6.17.3.76 1.25 1.63 2.02 1.12 1 2.06 1.31 2.35 1.46.29.15.46.12.63-.07.17-.2.73-.85.93-1.14.2-.29.39-.24.66-.15.27.1 1.72.81 2.01.96.29.15.49.22.56.34.07.13.07.73-.17 1.41Z"></path></svg>
+          Enviar registro
+        </button>
+        <p style="font-size:12px;color:#586A87;margin-top:13px;text-align:center">Sin compromiso hasta confirmar su plan. Precio de lanzamiento por tiempo limitado.</p>
+      </div>
+      <div data-rid="aside" style="{{ asideStyle }}">
+        <h3 style="font-family:'Manrope',sans-serif;font-size:20px;font-weight:700;margin:0 0 20px;letter-spacing:-.02em">Cómo procedemos</h3>
+        <sc-for list="{{ steps }}" as="st" hint-placeholder-count="3">
+          <div style="display:flex;gap:15px;margin-bottom:20px">
+            <span style="flex:0 0 auto;width:34px;height:34px;border-radius:11px;background:#E9F0FF;color:#12388A;display:grid;place-items:center;font-family:'Manrope',sans-serif;font-weight:700;font-size:14px">{{ st.n }}</span>
+            <div><div style="font-size:14.5px;font-weight:600;color:#0A1830">{{ st.t }}</div><div style="font-size:13px;color:#586A87">{{ st.d }}</div></div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer style="position:relative;overflow:hidden;background:#0A1830;color:#96A5C4;padding:70px 0 30px">
+  <canvas ref="{{ footerCanvasRef }}" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.4"></canvas>
+  <div style="max-width:1180px;margin:0 auto;padding:0 {{ wrapPad }};position:relative;z-index:2">
+    <div style="display:grid;grid-template-columns:{{ footCols }};gap:36px">
+      <div>
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:10px">
+          <span style="font-family:'Provicali','Baloo 2',sans-serif;font-weight:800;font-size:22px;color:#fff;letter-spacing:-.02em">StandardCheck</span>
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="flex:0 0 auto;margin-top:2px"><path d="M2.5 12.8l6 6L21.5 5.2" stroke="#5B8DEF" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </div>
+        <p style="font-size:14px;max-width:42ch;color:#8695B5">El departamento de cobros externo para los negocios de la República Dominicana. Tercerizado o bajo su marca — un motor, muchas carteras.</p>
+      </div>
+      <div>
+        <div style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#5B8DEF;margin-bottom:14px;font-weight:700">Plataforma</div>
+        <a href="#plataforma" style="color:#C1CBDF;text-decoration:none;font-size:14.5px;display:block;margin-bottom:10px;transition:color .3s" style-hover="{color:'#fff'}">La plataforma</a>
+        <a href="#servicio" style="color:#C1CBDF;text-decoration:none;font-size:14.5px;display:block;margin-bottom:10px;transition:color .3s" style-hover="{color:'#fff'}">El servicio</a>
+        <a href="#proceso" style="color:#C1CBDF;text-decoration:none;font-size:14.5px;display:block;margin-bottom:10px;transition:color .3s" style-hover="{color:'#fff'}">El proceso</a>
+        <a href="#registro" style="color:#C1CBDF;text-decoration:none;font-size:14.5px;display:block;margin-bottom:10px;transition:color .3s" style-hover="{color:'#fff'}">Registrar propiedad</a>
+      </div>
+      <div>
+        <div style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#5B8DEF;margin-bottom:14px;font-weight:700">Contacto</div>
+        <a href="{{ waHrefFooter }}" target="_blank" rel="noopener noreferrer" style="color:#C1CBDF;text-decoration:none;font-size:14.5px;display:block;margin-bottom:10px;transition:color .3s" style-hover="{color:'#fff'}">WhatsApp: 829 885 4910</a>
+        <a href="#" style="color:#C1CBDF;text-decoration:none;font-size:14.5px;display:block;margin-bottom:10px;transition:color .3s" style-hover="{color:'#fff'}">RNC: [pendiente]</a>
+        <address style="font-style:normal;color:#8695B5;font-size:13.5px;line-height:1.65;margin-top:2px">Av. Winston Churchill esq. Gustavo Mejía Ricart<br />Blue Mall, Piso 23<br />Santo Domingo, República Dominicana</address>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,.1);margin-top:44px;padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12.5px;color:#6E7D9C">
+      <span>© 2026 StandardCheck. Todos los derechos reservados.</span>
+      <span>Cobro persuasivo con respaldo legal</span>
+    </div>
+  </div>
+</footer>
+
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;whatsappNumber&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;18298854910&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Funcional&quot;},&quot;particlesEnabled&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Funcional&quot;},&quot;reducedMotionPreview&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Funcional&quot;}}">
+class Component extends DCLogic {
+  heroCanvasRef = React.createRef();
+  metricsCanvasRef = React.createRef();
+  platformCanvasRef = React.createRef();
+  footerCanvasRef = React.createRef();
+  heroBlueprintRef = React.createRef();
+  heroBlueprintOuterRef = React.createRef();
+  heroOrbOuterRef = React.createRef();
+  statementRef = React.createRef();
+  heroArrowRef = React.createRef();
+  spineRef = React.createRef();
+  metricsRef = React.createRef();
+
+  state = {
+    solid: false,
+    vw: typeof window !== 'undefined' ? window.innerWidth : 1280,
+    rev: {},
+    spineProgress: 0,
+    activeLevel: 0,
+    metricsCounted: false,
+    metricVals: { exp: 0, levels: 0, motor: 0 },
+    form: { nombre: '', wa: '', props: '', plan: '', consent: false },
+    atraso: '',
+    errors: {}
+  };
+
+  componentDidMount() {
+    this.reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (this.props.reducedMotionPreview) this.reduced = true;
+
+    this.onScroll = () => {
+      this.setState({ solid: window.scrollY > 40 });
+      this.updateSpine();
+    };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    this.onScroll();
+
+    this.onResize = () => {
+      if (this.resizeRaf) return;
+      this.resizeRaf = requestAnimationFrame(() => {
+        this.resizeRaf = null;
+        this.setState({ vw: window.innerWidth });
+      });
+    };
+    window.addEventListener('resize', this.onResize, { passive: true });
+
+    this.onMouseMove = (e) => {
+      const nx = (e.clientX / window.innerWidth - 0.5);
+      const ny = (e.clientY / window.innerHeight - 0.5);
+      if (this.heroBlueprintRef.current) this.heroBlueprintRef.current.style.transform = `translate(${nx * -14}px, ${ny * -14}px)`;
+      if (this.heroOrbOuterRef.current) this.heroOrbOuterRef.current.style.transform = `translate(${nx * 18}px, ${ny * 18}px)`;
+      if (this.statementRef.current) this.statementRef.current.style.transform = `rotateX(${ny * -4}deg) rotateY(${nx * 6}deg)`;
+    };
+    window.addEventListener('mousemove', this.onMouseMove, { passive: true });
+
+    const ids = ['heroKicker', 'heroH1', 'heroLead', 'heroCta', 'heroCred', 'statement', 'platformHead', 'engine', 'verticals', 'modes', 'svcIntro', 'procHead', 'legalHead', 'q', 'p', 'pricingHead', 'payStrip', 'regHead', 'fcard', 'aside'];
+    this.io = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        if (en.isIntersecting) {
+          this.setState((s) => ({ rev: { ...s.rev, [en.target.dataset.rid]: true } }));
+          this.io.unobserve(en.target);
+        }
+      });
+    }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
+    ids.forEach((id) => {
+      const el = document.querySelector(`[data-rid="${id}"]`);
+      if (el) this.io.observe(el);
+    });
+
+    this.checkMetrics = () => {
+      if (this.state.metricsCounted || !this.metricsRef.current) return;
+      const r = this.metricsRef.current.getBoundingClientRect();
+      if (r.top < window.innerHeight * 0.85 && r.bottom > 0) {
+        this.setState({ metricsCounted: true });
+        this.countUpMetrics();
+      }
+    };
+    window.addEventListener('scroll', this.checkMetrics, { passive: true });
+    this.checkMetrics();
+
+    this.starLayers = [];
+    const isSmallMobile = window.innerWidth < 640;
+    if (this.props.particlesEnabled !== false && !isSmallMobile) {
+      this.initStars(this.heroCanvasRef, 70);
+      this.initStars(this.metricsCanvasRef, 35);
+      this.initStars(this.platformCanvasRef, 45);
+      this.initStars(this.footerCanvasRef, 30);
+      if (!this.reduced) this.startStarLoop();
+      else this.drawStarsStatic();
+    }
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.onScroll);
+    window.removeEventListener('mousemove', this.onMouseMove);
+    window.removeEventListener('scroll', this.checkMetrics);
+    window.removeEventListener('resize', this.onResize);
+    if (this.resizeRaf) cancelAnimationFrame(this.resizeRaf);
+    if (this.io) this.io.disconnect();
+    if (this.rafId) cancelAnimationFrame(this.rafId);
+  }
+
+  initStars(ref, count) {
+    const canvas = ref.current;
+    if (!canvas) return;
+    const dpr = window.devicePixelRatio || 1;
+    const w = canvas.offsetWidth || 800;
+    const h = canvas.offsetHeight || 400;
+    canvas.width = w * dpr;
+    canvas.height = h * dpr;
+    const ctx = canvas.getContext('2d');
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const particles = Array.from({ length: count }, () => ({
+      x: Math.random() * w,
+      y: Math.random() * h,
+      r: Math.random() * 1.5 + 0.4,
+      s: Math.random() * 0.12 + 0.02,
+      phase: Math.random() * Math.PI * 2
+    }));
+    this.starLayers.push({ canvas, ctx, particles, w, h });
+  }
+
+  drawStarsStatic() {
+    this.starLayers.forEach((layer) => {
+      layer.ctx.clearRect(0, 0, layer.w, layer.h);
+      layer.particles.forEach((p) => {
+        layer.ctx.beginPath();
+        layer.ctx.fillStyle = 'rgba(180,205,255,.6)';
+        layer.ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        layer.ctx.fill();
+      });
+    });
+  }
+
+  startStarLoop() {
+    const tick = (t) => {
+      this.starLayers.forEach((layer) => {
+        layer.ctx.clearRect(0, 0, layer.w, layer.h);
+        layer.particles.forEach((p) => {
+          p.y -= p.s;
+          if (p.y < -2) p.y = layer.h + 2;
+          const alpha = 0.25 + 0.55 * Math.abs(Math.sin(t * 0.0006 + p.phase));
+          layer.ctx.beginPath();
+          layer.ctx.fillStyle = `rgba(180,205,255,${alpha})`;
+          layer.ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          layer.ctx.fill();
+        });
+      });
+      this.rafId = requestAnimationFrame(tick);
+    };
+    this.rafId = requestAnimationFrame(tick);
+  }
+
+  updateSpine() {
+    const el = this.spineRef.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    const vh = window.innerHeight;
+    const total = rect.height + vh * 0.5;
+    const traveled = vh * 0.75 - rect.top;
+    let p = Math.max(0, Math.min(1, traveled / total));
+    const activeLevel = Math.round(p * 6);
+    if (activeLevel !== this.state.activeLevel || Math.abs(p * 100 - this.state.spineProgress) > 0.5) {
+      this.setState({ activeLevel, spineProgress: p * 100 });
+    }
+  }
+
+  countUpMetrics() {
+    const targets = { exp: 12, levels: 6, motor: 1 };
+    const duration = 1100;
+    const start = performance.now();
+    const step = (t) => {
+      const p = Math.min(1, (t - start) / duration);
+      const ease = 1 - Math.pow(1 - p, 3);
+      this.setState({
+        metricVals: {
+          exp: Math.round(targets.exp * ease),
+          levels: Math.round(targets.levels * ease),
+          motor: Math.round(targets.motor * ease)
+        }
+      });
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
+
+  onField(name) {
+    return (e) => this.setState((s) => ({ form: { ...s.form, [name]: e.target.value }, errors: { ...s.errors, [name]: false } }));
+  }
+
+  onPlanField(e) {
+    this.setState((s) => ({ form: { ...s.form, plan: e.target.value } }));
+  }
+
+  onConsent(e) {
+    this.setState((s) => ({ form: { ...s.form, consent: e.target.checked }, errors: { ...s.errors, consent: false } }));
+  }
+
+  selectAtraso(op) {
+    return () => this.setState({ atraso: op });
+  }
+
+  sendRegistration() {
+    const { form } = this.state;
+    const errors = {};
+    if (!form.nombre.trim()) errors.nombre = true;
+    if (!form.wa.trim()) errors.wa = true;
+    if (!form.props.trim()) errors.props = true;
+    if (!form.consent) errors.consent = true;
+    if (Object.keys(errors).length) {
+      this.setState({ errors });
+      return;
+    }
+    const num = (this.props.whatsappNumber || '18298854910').replace(/[^0-9]/g, '');
+    const msg = `*REGISTRO — StandardCheck*\n\nNombre: ${form.nombre}\nWhatsApp: ${form.wa}\nPropiedades: ${form.props}\nEstado: ${this.state.atraso || '—'}\nPlan de interés: ${form.plan || '—'}\n\nDeseo registrar mi propiedad para gestión de cobro.`;
+    window.open(`https://wa.me/${num}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener,noreferrer');
+  }
+
+  renderVals() {
+    const solid = this.state.solid;
+    const num = (this.props.whatsappNumber || '18298854910').replace(/[^0-9]/g, '');
+    const waMsg = 'Buenas, quiero información sobre el departamento de cobros de StandardCheck.';
+    const waHref = `https://wa.me/${num}?text=${encodeURIComponent(waMsg)}`;
+    const waHrefFooter = `https://wa.me/${num}`;
+
+    const rev = this.state.rid = this.state.rev;
+    const on = (id, base) => ({ opacity: this.state.rev[id] ? 1 : 0, transform: this.state.rev[id] ? 'none' : 'translateY(20px)', transition: 'opacity .85s cubic-bezier(.22,.61,.36,1), transform .85s cubic-bezier(.22,.61,.36,1)', ...base });
+
+    const vw = this.state.vw;
+    const bp = (n) => vw <= n;
+    const breakpoints = {
+      heroCols: bp(900) ? '1fr' : '1.08fr .92fr',
+      metricsCols: bp(440) ? '1fr' : bp(760) ? '1fr 1fr' : 'repeat(4,1fr)',
+      pfCols: bp(880) ? '1fr' : '.9fr 1.1fr',
+      verticalsCols: bp(520) ? '1fr' : '1fr 1fr',
+      modesCols: bp(640) ? '1fr' : '1fr 1fr',
+      svcCols: bp(820) ? '1fr' : '.82fr 1.18fr',
+      svcIntroPos: bp(820) ? 'static' : 'sticky',
+      legalCols: bp(760) ? '1fr' : '1fr 1fr',
+      priceCols: bp(820) ? '1fr' : 'repeat(3,1fr)',
+      formCols: bp(820) ? '1fr' : '1.1fr .9fr',
+      footCols: bp(700) ? '1fr' : '1.6fr 1fr 1fr',
+      wrapPad: bp(600) ? '20px' : '34px',
+      hdPadV: bp(640) ? 14 : 18,
+      heroPad: bp(440) ? '132px 0 76px' : bp(680) ? '144px 0 88px' : '158px 0 108px',
+      secPad: bp(440) ? '72px 0' : bp(680) ? '88px 0' : '112px 0',
+      navLinksDisplay: bp(900) ? 'none' : 'flex',
+      navCtaDisplay: bp(640) ? 'none' : 'inline-flex',
+      navGap: bp(640) ? 12 : 28,
+      logoFontSize: bp(640) ? 18 : 21,
+      lvlTagDisplay: bp(680) ? 'none' : 'inline'
+    };
+
+    const activeLevel = this.state.activeLevel;
+    const lvlColors = ['#7AA5FF', '#5B8DEF', '#2F6BFF', '#1E4FD8', '#173FA6', '#0C2E6E'];
+    const lvlData = [
+      { n: '01', title: 'Recordatorio', desc: 'Notificación cordial antes del vencimiento.', tag: 'Cortesía', tagColor: '#8A9BB8' },
+      { n: '02', title: 'Segundo aviso', desc: 'Notificación posterior al vencimiento.', tag: 'Cortesía', tagColor: '#8A9BB8' },
+      { n: '03', title: 'Gestión telefónica', desc: 'Contacto directo con el inquilino.', tag: 'Firmeza', tagColor: '#8A9BB8' },
+      { n: '04', title: 'Requerimiento formal', desc: 'Gestión firme, documentada por escrito.', tag: 'Firmeza', tagColor: '#8A9BB8' },
+      { n: '05', title: 'Carta legal', desc: 'Redactada por abogado, con acuse de recibo.', tag: 'Vía legal', tagColor: '#12388A' },
+      { n: '06', title: 'Intimación con alguacil', desc: 'Acto legal conforme a la Ley 85-25.', tag: 'Vía legal', tagColor: '#12388A' }
+    ];
+    const spineLevels = lvlData.map((lv, i) => {
+      const isActive = i < activeLevel;
+      return {
+        ...lv,
+        markBg: isActive ? lvlColors[i] : '#C7D3EC',
+        markShadow: isActive ? `0 8px 20px rgba(10,24,48,.14), 0 0 0 6px #EEF3FE, 0 0 16px ${lvlColors[i]}55` : '0 8px 20px rgba(10,24,48,.14), 0 0 0 6px #EEF3FE',
+        markScale: isActive ? 'scale(1)' : 'scale(.9)'
+      };
+    });
+
+    const verticals = [
+      { name: 'Renta residencial', status: 'Activo', badgeBg: '#2563EB', badgeColor: '#fff', badgeBorder: 'none' },
+      { name: 'Condominios', status: 'Próximo', badgeBg: 'transparent', badgeColor: '#9FB0CE', badgeBorder: '1px solid rgba(255,255,255,.24)' },
+      { name: 'Financieras', status: 'Próximo', badgeBg: 'transparent', badgeColor: '#9FB0CE', badgeBorder: '1px solid rgba(255,255,255,.24)' },
+      { name: 'Colegios y clubes', status: 'Próximo', badgeBg: 'transparent', badgeColor: '#9FB0CE', badgeBorder: '1px solid rgba(255,255,255,.24)' },
+      { name: 'Cuentas por cobrar', status: 'Próximo', badgeBg: 'transparent', badgeColor: '#9FB0CE', badgeBorder: '1px solid rgba(255,255,255,.24)' },
+      { name: 'Su cartera', status: 'A medida', badgeBg: 'transparent', badgeColor: '#9FB0CE', badgeBorder: '1px solid rgba(255,255,255,.24)' }
+    ];
+
+    const plans = [
+      { name: '3 meses', save: '\u00A0', total: 'RD$1,497', permes: 'Equivale a RD$499 por mes', border: '1px solid #E1E9F5', shadow: 'none', badge: null, payShadow: 'none', features: ['Gestión persuasiva de 6 niveles', 'Respaldo legal incluido', 'Confirmación de pago mensual'], payHref: `https://wa.me/${num}?text=${encodeURIComponent('Quiero contratar el plan de 3 meses de StandardCheck.')}` },
+      { name: '6 meses', save: 'Ahorra 15%', total: 'RD$2,545', permes: 'Equivale a RD$424 por mes', border: '1px solid #E1E9F5', shadow: 'none', badge: null, payShadow: 'none', features: ['Todo lo del plan de 3 meses', 'Prioridad en la gestión', 'Menor costo por mes'], payHref: `https://wa.me/${num}?text=${encodeURIComponent('Quiero contratar el plan de 6 meses de StandardCheck.')}` },
+      { name: '1 año', save: 'Ahorra 20%', total: 'RD$4,790', permes: 'Equivale a RD$399 por mes', border: '1px solid #2563EB', shadow: '0 20px 50px rgba(37,99,235,.14)', badge: 'Recomendado', payShadow: '0 12px 26px rgba(37,99,235,.3)', features: ['Todo lo del plan de 6 meses', 'El mejor precio por puerta', 'Gestión continua todo el año'], payHref: `https://wa.me/${num}?text=${encodeURIComponent('Quiero contratar el plan de 1 año de StandardCheck.')}` }
+    ];
+
+    const errors = this.state.errors;
+    const inputStyle = (name) => `width:100%;font-family:inherit;font-size:15px;color:#0A1830;background:#FFFFFF;border:1.5px solid ${errors[name] ? '#E4544C' : '#E1E9F5'};border-radius:11px;padding:12px 14px;transition:border-color .2s,box-shadow .2s`;
+
+    return {
+      headerStyle: { position: 'fixed', inset: '0 0 auto 0', zIndex: 40, transition: 'background .35s, box-shadow .35s, border-color .35s', borderBottom: solid ? '1px solid #E1E9F5' : '1px solid transparent', background: solid ? 'rgba(245,248,253,.85)' : 'transparent', backdropFilter: solid ? 'blur(16px) saturate(1.4)' : 'none', boxShadow: solid ? '0 6px 26px rgba(10,24,48,.06)' : 'none' },
+      headerLogoColor: solid ? '#0A1830' : '#fff',
+      headerAccentColor: solid ? '#2563EB' : '#5B8DEF',
+      navLinkStyle: { fontSize: 14, fontWeight: 600, textDecoration: 'none', transition: 'color .25s', color: solid ? '#243A5E' : 'rgba(255,255,255,.82)', display: breakpoints.navLinksDisplay },
+      navLinkHoverStyle: { color: solid ? '#2563EB' : '#fff' },
+      ctaStyle: { background: solid ? '#2563EB' : '#fff', color: solid ? '#fff' : '#12388A', padding: '10px 18px', borderRadius: 10, fontSize: 13.5, fontWeight: 600, textDecoration: 'none', transition: 'transform .25s cubic-bezier(.34,1.56,.64,1), box-shadow .25s', display: breakpoints.navCtaDisplay },
+      navStyle: { display: 'flex', alignItems: 'center', gap: breakpoints.navGap },
+      hdStyle: { maxWidth: 1180, margin: '0 auto', padding: `${breakpoints.hdPadV}px ${breakpoints.wrapPad}`, display: 'flex', alignItems: 'center', justifyContent: 'space-between' },
+      logoFontSize: breakpoints.logoFontSize,
+      wrapPad: breakpoints.wrapPad,
+      heroPad: breakpoints.heroPad,
+      secPad: breakpoints.secPad,
+      heroCols: breakpoints.heroCols,
+      metricsCols: breakpoints.metricsCols,
+      pfCols: breakpoints.pfCols,
+      verticalsCols: breakpoints.verticalsCols,
+      modesCols: breakpoints.modesCols,
+      svcCols: breakpoints.svcCols,
+      svcIntroPos: breakpoints.svcIntroPos,
+      legalCols: breakpoints.legalCols,
+      priceCols: breakpoints.priceCols,
+      formCols: breakpoints.formCols,
+      footCols: breakpoints.footCols,
+      lvlTagDisplay: breakpoints.lvlTagDisplay,
+      ctaHoverStyle: { transform: 'translateY(-1px)', boxShadow: '0 10px 26px rgba(0,0,0,.16)' },
+      waHoverStyle: { transform: 'translateY(-1px)', boxShadow: '0 10px 24px rgba(37,211,102,.45)' },
+      btnWhiteHoverStyle: { transform: 'translateY(-2px)', boxShadow: '0 22px 52px rgba(4,18,54,.4)' },
+      waHref, waHrefFooter,
+
+      heroKickerStyle: on('heroKicker', { fontSize: 12, fontWeight: 700, letterSpacing: '.16em', textTransform: 'uppercase', color: '#2563EB', display: 'block' }),
+      heroH1Style: on('heroH1', { fontFamily: "'Manrope',sans-serif", color: '#fff', fontSize: 'clamp(40px,5.8vw,70px)', lineHeight: 1, fontWeight: 800, margin: '20px 0 22px', letterSpacing: '-.045em', maxWidth: '15ch' }),
+      heroLeadStyle: on('heroLead', { fontSize: 'clamp(16px,1.55vw,19px)', color: 'rgba(223,233,251,.9)', maxWidth: '46ch', margin: '0 0 32px' }),
+      heroCtaRowStyle: on('heroCta', { display: 'flex', alignItems: 'center', gap: 24, flexWrap: 'wrap', marginBottom: 26 }),
+      heroCredStyle: on('heroCred', { display: 'flex', alignItems: 'center', gap: 14, flexWrap: 'wrap', fontSize: 12.5, color: 'rgba(200,214,240,.75)', fontWeight: 500 }),
+      statementWrapStyle: on('statement', {}),
+
+      platformHeadStyle: on('platformHead', {}),
+      engineStyle: on('engine', {}),
+      verticalsStyle: on('verticals', {}),
+      modesStyle: on('modes', {}),
+      svcIntroStyle: on('svcIntro', {}),
+      procHeadStyle: on('procHead', {}),
+      legalHeadStyle: on('legalHead', {}),
+      qStyle: on('q', {}),
+      pStyle: on('p', {}),
+      pricingHeadStyle: on('pricingHead', {}),
+      payStripStyle: on('payStrip', {}),
+      regHeadStyle: on('regHead', {}),
+      fcardStyle: on('fcard', {}),
+      asideStyle: on('aside', {}),
+
+      radarOffset: 188 - (188 * 3) / 6,
+      sparkOffset: this.state.metricsCounted ? 0 : 220,
+      metricVals: this.state.metricVals,
+
+      engineFeatures: ['Contacto persuasivo automatizado', 'Escalada medida en 6 niveles', 'Respaldo legal de último recurso', 'Cada gestión, documentada'],
+      verticals,
+      spineProgress: this.state.spineProgress,
+      spineLevels,
+
+      svcItems: [
+        { title: 'Cobro persuasivo, cada mes', desc: 'Contactamos a su inquilino y lo llevamos a pagar, con método y constancia, todos los meses.' },
+        { title: 'Usted no hace la llamada incómoda', desc: 'Gestionamos cada cobro por usted; usted conserva la relación con su inquilino.' },
+        { title: 'Confirmación de pago', desc: 'Verificamos el comprobante con usted antes de cerrar cada mes.' },
+        { title: 'Respaldo legal si hace falta', desc: 'Cuando la persuasión no basta, escalamos con abogado. Es el último recurso, no el método.' }
+      ],
+
+      plans,
+
+      form: this.state.form,
+      onField: this.onField.bind(this),
+      onPlanField: this.onPlanField.bind(this),
+      onConsent: this.onConsent.bind(this),
+      atrasoOptions: ['Sí', 'No', 'Contrato nuevo'],
+      selectAtraso: this.selectAtraso.bind(this),
+      atrasoBorder: (op) => this.state.atraso === op ? '1.5px solid #2563EB' : '1.5px solid #E1E9F5',
+      atrasoColor: (op) => this.state.atraso === op ? '#12388A' : '#586A87',
+      atrasoBg: (op) => this.state.atraso === op ? '#E9F0FF' : '#FFFFFF',
+      inputStyle,
+      inputFocusStyle: { borderColor: '#2563EB', boxShadow: '0 0 0 4px rgba(37,99,235,.14)' },
+      sendRegistration: this.sendRegistration.bind(this),
+      steps: [
+        { n: '1', t: 'Usted se registra', d: 'Deja sus datos por este formulario.' },
+        { n: '2', t: 'Confirmamos su plan', d: 'Le contactamos por WhatsApp y registra sus propiedades.' },
+        { n: '3', t: 'Iniciamos la gestión', d: 'El cobro arranca con su primer ciclo de renta.' }
+      ]
+    };
+  }
+}
+
+</script>
+</body>
+</html>
